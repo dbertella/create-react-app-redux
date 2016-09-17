@@ -28,3 +28,10 @@ tr:nth-child(even) {
 td {
   padding: 0.5em;
 }
+
+input {
+  margin: 0.5em;
+}
+button {
+  margin: 1em 2em 3em;
+}

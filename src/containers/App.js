@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Table from '../components/Table';
+import Table from '../components/Table/';
+import Filters from '../components/Filters/';
 
-import { pushArtistList } from '../actions';
+import { pushArtistList, filterArtistsList } from '../actions';
 import artists from '../mock/artists.json';
 
 import './App.css';
@@ -12,29 +13,21 @@ export class App extends Component {
     const { pushArtist } = this.props;
     pushArtist(artists);
   }
-  renderFilters = () => {
-    return (
-      <div>
-        Filter:
-        <ul>
-          <li>age range <input placeholder="min" /> <input placeholder="max" /></li>
-          <li>a rate range <input placeholder="min" /> <input placeholder="max" /></li>
-          <li>
-            gender:
-            <label><input type="radio" name="gender" value="M" onChange={console.log('m')} />M</label>
-            <label><input type="radio" name="gender" value="F" onChange={console.log('f')} />F</label>
-          </li>
-        </ul>
-      </div>
-    );
-  };
+  filterArtists = (data) => {
+    const { filterArtists } = this.props;
+    filterArtists(data);
+  }
+  removeFilter = () => {
+    const { filterArtists } = this.props;
+    filterArtists();
+  }
   render() {
-    const { artistList } = this.props;
+    const { artistList, artistListFiltered } = this.props;
     return (
       <div className="App">
         <h1>Pop</h1>
-        {this.renderFilters()}
-        <Table artistList={artistList} />
+        <Filters onSubmit={this.filterArtists} />
+        <Table artistList={artistListFiltered && artistListFiltered.length > 0 ? artistListFiltered : artistList} />
       </div>
     );
   }
@@ -42,9 +35,11 @@ export class App extends Component {
 
 const mapStateToProps = state => ({
   artistList: state.artists.data,
+  artistListFiltered: state.artists.dataFiltered,
 });
 const mapDispatchToProps = {
   pushArtist: pushArtistList,
+  filterArtists: filterArtistsList,
 };
 
 App.propTypes = {
