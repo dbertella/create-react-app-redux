@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+table {
+  width: 100%;
+  overflow: hidden;
+  color: #333;
+  border: 1px solid #c3c3c3;
+  border-spacing: 0;
+}
+
+thead tr {
+  background: #c3c3c3;
+  color: #fff;
+}
+
+tr {
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+td {
+  padding: 0.5em;
+}
