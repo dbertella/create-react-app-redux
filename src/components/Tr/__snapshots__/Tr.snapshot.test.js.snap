@@ -1,0 +1,22 @@
+exports[`test initial render 1`] = `
+<tr>
+  <td>
+    f853578c-fc0f-4e65-81b8-566c5dffa35a
+  </td>
+  <td>
+    F
+  </td>
+  <td>
+    39
+  </td>
+  <td>
+    -0.09998975
+  </td>
+  <td>
+    14.21
+  </td>
+  <td>
+    51.75436293
+  </td>
+</tr>
+`;
