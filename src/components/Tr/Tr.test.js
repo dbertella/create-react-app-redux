@@ -1,7 +1,8 @@
 import React from 'react';
+import { shallow } from 'enzyme';
+
 import Tr from './';
 
-import { shallow } from 'enzyme';
 
 const artist = {
     "uuid": "f853578c-fc0f-4e65-81b8-566c5dffa35a",
@@ -12,8 +13,8 @@ const artist = {
     "latitude": "51.75436293"
 };
 
-describe("Tr Component", function() {
-  it("should render 6 td, one per artist field", function() {
+describe("Tr Component", () => {
+  it("should render 6 td, one per artist field", () => {
     const wrapper = shallow(<Tr info={Object.keys(artist).map(key => artist[key])} />);
     expect(wrapper.find('td').length).toBe(6);
   });

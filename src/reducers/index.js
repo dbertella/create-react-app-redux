@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 
 import {
   FILTER_ARTISTS,
@@ -16,22 +16,23 @@ const artists = (state = {
       return {
         ...state,
         data: action.json.artists,
-      }
+      };
     case FILTER_ARTISTS:
       return {
         ...state,
         filtered: action.filtered,
-      }
+      };
     case SORT_ARTISTS:
       return {
         ...state,
         data: action.sorted,
         filtered: action.sortedFiltered,
-      }
+      };
     default:
-      return state
+      return state;
   }
 };
+
 const sortParam = (state = {
   age: 'ASC',
   rate: 'DESC',
@@ -41,42 +42,16 @@ const sortParam = (state = {
       return {
         ...state,
         [action.param]: action.sortType === 'DESC' ? 'ASC' : 'DESC',
-      }
+      };
     default:
-      return state
+      return state;
   }
 };
-// const filters = (state = {}, action) => {
-//   switch (action.type) {
-//     case AGE_FILTER:
-//       return {
-//         ...state,
-//         age: {
-//           ...state.age,
-//           ...action.data,
-//         },
-//       }
-//     case RATE_FILTER:
-//       return {
-//         ...state,
-//         rate: {
-//           ...state.rate,
-//           ...action.data,
-//         },
-//       }
-//     case GENDER_FILTER:
-//       return {
-//         ...state,
-//         gender: action.data,
-//       }
-//     default:
-//       return state
-//   }
-// };
+
 const rootReducer = combineReducers({
   artists,
   sortParam,
   form: formReducer,
-})
+});
 
-export default rootReducer
+export default rootReducer;

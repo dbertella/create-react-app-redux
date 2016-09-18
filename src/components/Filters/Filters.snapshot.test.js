@@ -1,8 +1,9 @@
 import React from 'react';
-import Filters from './';
 import renderer from 'react-test-renderer';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import Filters from './';
 
 const store = createStore(() => ({}));
 const stubFunc = () => 'app';

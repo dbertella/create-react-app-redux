@@ -12,22 +12,22 @@ const artist = {
     "latitude": "51.75436293"
 };
 
-describe("Artists Component", function() {
+describe("Artists Component", () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<Artist info={artist} />);
   });
-  it("should render the artist info", function() {
+  it("should render the artist info", () => {
     expect(wrapper.find('p').length).toBe(3);
   });
-  it("should not render map on load", function() {
+  it("should not render map on load", () => {
     expect(wrapper.find('Gmaps').length).toBe(0);
   });
-  it("should render the map on state cahnge", function() {
+  it("should render the map on state cahnge", () => {
     wrapper.setState({ showLocation: true });
     expect(wrapper.find('Gmaps').length).toBe(1);
   });
-  it("should change button label on state cahnge", function() {
+  it("should change button label on state cahnge", () => {
     expect(wrapper.find('button').text()).toBe('Show Artist location');
     wrapper.setState({ showLocation: true });
     expect(wrapper.find('button').text()).toBe('Hide Artist location');

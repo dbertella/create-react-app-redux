@@ -1,6 +1,7 @@
 import React from 'react';
-import Tr from './';
 import renderer from 'react-test-renderer';
+
+import Tr from './';
 
 const artist = {
     "uuid": "f853578c-fc0f-4e65-81b8-566c5dffa35a",

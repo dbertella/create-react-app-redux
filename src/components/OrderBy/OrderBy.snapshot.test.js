@@ -1,6 +1,7 @@
 import React from 'react';
-import OrderBy from './';
 import renderer from 'react-test-renderer';
+
+import OrderBy from './';
 
 const sortParam = {
   age: 'ASC',

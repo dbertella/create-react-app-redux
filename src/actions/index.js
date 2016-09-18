@@ -1,19 +1,19 @@
-import { reset } from 'redux-form'
+import { reset } from 'redux-form';
 
 export const FILTER_ARTISTS = 'FILTER_ARTISTS';
 export const PUSH_ARTISTS = 'PUSH_ARTISTS';
 export const SORT_ARTISTS = 'SORT_ARTISTS';
 
-export const pushArtistList = (json) => ({
+export const pushArtistList = json => ({
   type: PUSH_ARTISTS,
   json,
 });
-const artistFiltered = (filtered) => ({
+const artistFiltered = filtered => ({
   type: FILTER_ARTISTS,
   filtered,
 });
 
-export const filterArtistsList = (data) => (dispatch, getState) => {
+export const filterArtistsList = data => (dispatch, getState) => {
   let filteredState = getState().artists.data;
   if (data.ageMin || data.ageMax) {
     const min = data.ageMin || 0;
@@ -34,15 +34,15 @@ export const filterArtistsList = (data) => (dispatch, getState) => {
   }
   if (filteredState.length === 0) {
     console.warn(new Error('No match for added filter'));
-    dispatch(reset('filterArtist'))
+    dispatch(reset('filterArtist'));
   }
   return dispatch(artistFiltered(filteredState));
-}
+};
 
 export const sortArtistList = (param, sortType) => (dispatch, getState) => {
   const artists = getState().artists;
   const artistList = artists.data;
-  const artistFiltered = artists.filtered;
+  const artistListFiltered = artists.filtered;
 
   const sortArtist = (prev, next) => {
     if (prev[param] > next[param]) {
@@ -52,9 +52,9 @@ export const sortArtistList = (param, sortType) => (dispatch, getState) => {
       return -1;
     }
     return 0;
-  }
+  };
   const sorted = artistList.sort(sortArtist);
-  const sortedFiltered = artistFiltered.sort(sortArtist);
+  const sortedFiltered = artistListFiltered.sort(sortArtist);
   return dispatch({
     type: SORT_ARTISTS,
     sorted: sortType === 'ASC' ? sorted : sorted.reverse(),
@@ -62,4 +62,4 @@ export const sortArtistList = (param, sortType) => (dispatch, getState) => {
     param,
     sortType,
   });
-}
+};

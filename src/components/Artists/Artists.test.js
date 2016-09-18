@@ -1,7 +1,8 @@
 import React from 'react';
+import { shallow } from 'enzyme';
+
 import Artists from './';
 
-import { shallow } from 'enzyme';
 
 const artistList = [{
     "uuid": "f853578c-fc0f-4e65-81b8-566c5dffa35a",
@@ -19,8 +20,8 @@ const artistList = [{
     "latitude": "51.74640997"
 }];
 
-describe("Artists Component", function() {
-  it("should render two Artist component", function() {
+describe("Artists Component", () => {
+  it("should render two Artist component", () => {
     const wrapper = shallow(<Artists artistList={artistList} />);
     expect(wrapper.find('Artist').length).toBe(2);
   });
