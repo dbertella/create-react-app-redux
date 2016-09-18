@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import {Gmaps, Marker} from 'react-gmaps';
+import { Gmaps, Marker } from 'react-gmaps';
 
-const card = {
+const card = {
   position: 'relative',
   border: '1px solid #c3c3c3',
   borderRadius: 2,
@@ -10,21 +10,20 @@ const card = {
   height: 300,
   margin: '1em',
   padding: '1em',
-}
-
+};
 
 class Artist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-       showLocation: false
+      showLocation: false,
     };
   }
   toggleShow = () => {
     const { showLocation } = this.state;
     this.setState({
-      showLocation: !showLocation
-    })
+      showLocation: !showLocation,
+    });
   }
   render() {
     const { info } = this.props;
@@ -47,23 +46,22 @@ class Artist extends React.Component {
                 lng={info.longitude}
                 zoom={12}
                 loadingMessage={'Loading'}
-                params={{v: '3.exp', key: 'AIzaSyBNQdGe3AYv7nAWXTrsIwoiNFjW1coBTAc'}}
+                params={{ v: '3.exp', key: 'AIzaSyBNQdGe3AYv7nAWXTrsIwoiNFjW1coBTAc' }}
               >
                 <Marker
                   lat={info.latitude}
                   lng={info.longitude}
-                  draggable={true}
                 />
               </Gmaps>
           }
         </div>
       </div>
-    )
+    );
   }
 }
 
 Artist.propTypes = {
   info: PropTypes.object.isRequired,
-}
+};
 
 export default Artist;

@@ -1,14 +1,13 @@
 import React, { PropTypes } from 'react';
 import Tr from '../Tr';
 
-const dataToRender = (artist) => {
-  return Object.keys(artist).sort(); //.filter(key => key !== 'longitude').filter(key => key !== 'latitude');
-}
+const dataToRender = artist =>
+  Object.keys(artist).sort(); // .filter(key => key !== 'longitude').filter(key => key !== 'latitude');
 
-const renderHeading = (artist) => <Tr info={dataToRender(artist)} />;
+const renderHeading = artist => <Tr info={dataToRender(artist)} />;
 
-const renderList = (artistList) => artistList.map((artist, i) =>
-    <Tr key={i} info={dataToRender(artist).map(key => artist[key])} />);
+const renderList = artistList => artistList.map((artist, i) =>
+  <Tr key={i} info={dataToRender(artist).map(key => artist[key])} />);
 
 const Table = (props) => {
   const { artistList } = props;
@@ -29,7 +28,7 @@ const Table = (props) => {
 };
 
 Table.propTypes = {
-  artistList: PropTypes.array.isRequired,
-}
+  artistList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Table;

@@ -13,6 +13,6 @@ const Tr = (props) => {
 
 Tr.propTypes = {
   info: PropTypes.array.isRequired,
-}
+};
 
 export default Tr;

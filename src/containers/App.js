@@ -6,7 +6,7 @@ import OrderBy from '../components/OrderBy/';
 import Table from '../components/Table/';
 
 import { pushArtistList, filterArtistsList, sortArtistList } from '../actions';
-import artists from '../mock/artists.json';
+import artistsJson from '../mock/artists.json';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ export class App extends Component {
   }
   componentDidMount() {
     const { pushArtist } = this.props;
-    pushArtist(artists);
+    pushArtist(artistsJson);
   }
   filterArtists = (data) => {
     const { filterArtists } = this.props;
@@ -33,7 +33,7 @@ export class App extends Component {
     const { showLayout } = this.state;
     this.setState({
       showLayout: showLayout === 'cards' ? 'table' : 'cards',
-    })
+    });
   };
   render() {
     const { artists, sortArtist, sortParam } = this.props;
@@ -66,9 +66,10 @@ const mapDispatchToProps = {
 
 App.propTypes = {
   artists: PropTypes.object.isRequired,
+  filterArtists: PropTypes.func.isRequired,
   pushArtist: PropTypes.func.isRequired,
   sortArtist: PropTypes.func.isRequired,
   sortParam: PropTypes.object.isRequired,
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

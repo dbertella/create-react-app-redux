@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import ArtistCard from '../ArtistCard';
-const renderList = (artistList) =>
+
+const renderList = artistList =>
   artistList.map((artist, i) => <ArtistCard info={artist} key={i} />);
 
 const Artists = (props) => {
@@ -15,7 +16,7 @@ const Artists = (props) => {
 };
 
 Artists.propTypes = {
-  artistList: PropTypes.array.isRequired,
-}
+  artistList: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Artists;
