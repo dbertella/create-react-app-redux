@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Tr from '../Tr';
 
 const dataToRender = (artist) => {
-  return Object.keys(artist).filter(key => key !== 'longitude').filter(key => key !== 'latitude');
+  return Object.keys(artist).sort(); //.filter(key => key !== 'longitude').filter(key => key !== 'latitude');
 }
 
 const renderHeading = (artist) => <Tr info={dataToRender(artist)} />;

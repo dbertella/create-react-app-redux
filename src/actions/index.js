@@ -1,5 +1,8 @@
+import { reset } from 'redux-form'
+
 export const FILTER_ARTISTS = 'FILTER_ARTISTS';
 export const PUSH_ARTISTS = 'PUSH_ARTISTS';
+export const SORT_ARTISTS = 'SORT_ARTISTS';
 
 export const pushArtistList = (json) => ({
   type: PUSH_ARTISTS,
@@ -16,30 +19,47 @@ export const filterArtistsList = (data) => (dispatch, getState) => {
     const min = data.ageMin || 0;
     const max = data.ageMax || 99;
     filteredState = filteredState.filter(artist =>
-      artist.age > min && artist.age < max
+      artist.age >= min && artist.age <= max
     );
   }
   if (data.rateMin || data.rateMax) {
     const min = data.rateMin || 0;
     const max = data.rateMax || 99;
     filteredState = filteredState.filter(artist =>
-      artist.rate > min && artist.rate < max
+      artist.rate >= min && artist.rate <= max
     );
   }
   if (data.gender) {
     filteredState = filteredState.filter(artist => artist.gender === data.gender);
   }
   if (filteredState.length === 0) {
-    console.log('No Match for the filter');
+    console.warn(new Error('No match for added filter'));
+    dispatch(reset('filterArtist'))
   }
   return dispatch(artistFiltered(filteredState));
 }
 
-export const orderArtistsList = (query) => (dispatch, getState) => {
-  const artistList = getState().artists.data;
-  const filtered = artistList.filter(el => el[query.field] === query.value);
+export const sortArtistList = (param, sortType) => (dispatch, getState) => {
+  const artists = getState().artists;
+  const artistList = artists.data;
+  const artistFiltered = artists.filtered;
+
+  const sortArtist = (prev, next) => {
+    if (prev[param] > next[param]) {
+      return 1;
+    }
+    if (prev[param] < next[param]) {
+      return -1;
+    }
+    return 0;
+  }
+  const sorted = artistList.sort(sortArtist);
+  const sortedFiltered = artistFiltered.sort(sortArtist);
   return dispatch({
-    type: FILTER_ARTISTS,
-    filtered,
+    type: SORT_ARTISTS,
+    sorted: sortType === 'ASC' ? sorted : sorted.reverse(),
+    sortedFiltered: sortType === 'ASC' ? sortedFiltered : sortedFiltered.reverse(),
+    param,
+    sortType,
   });
 }

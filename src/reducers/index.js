@@ -4,13 +4,12 @@ import { reducer as formReducer } from 'redux-form'
 import {
   FILTER_ARTISTS,
   PUSH_ARTISTS,
-  // AGE_FILTER,
-  // RATE_FILTER,
-  // GENDER_FILTER,
+  SORT_ARTISTS,
 } from '../actions';
 
 const artists = (state = {
-  data: []
+  data: [],
+  filtered: [],
 }, action) => {
   switch (action.type) {
     case PUSH_ARTISTS:
@@ -21,7 +20,27 @@ const artists = (state = {
     case FILTER_ARTISTS:
       return {
         ...state,
-        dataFiltered: action.filtered,
+        filtered: action.filtered,
+      }
+    case SORT_ARTISTS:
+      return {
+        ...state,
+        data: action.sorted,
+        filtered: action.sortedFiltered,
+      }
+    default:
+      return state
+  }
+};
+const sortParam = (state = {
+  age: 'ASC',
+  rate: 'DESC',
+}, action) => {
+  switch (action.type) {
+    case SORT_ARTISTS:
+      return {
+        ...state,
+        [action.param]: action.sortType === 'DESC' ? 'ASC' : 'DESC',
       }
     default:
       return state
@@ -56,6 +75,7 @@ const artists = (state = {
 // };
 const rootReducer = combineReducers({
   artists,
+  sortParam,
   form: formReducer,
 })
 

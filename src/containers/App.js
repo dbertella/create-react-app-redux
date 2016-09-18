@@ -3,10 +3,18 @@ import { connect } from 'react-redux';
 import Table from '../components/Table/';
 import Filters from '../components/Filters/';
 
-import { pushArtistList, filterArtistsList } from '../actions';
+import { pushArtistList, filterArtistsList, sortArtistList } from '../actions';
 import artists from '../mock/artists.json';
 
 import './App.css';
+
+const OrderBy = ({sortArtist, sortParam}) => (
+  <div>
+    OrderBy:
+    <button onClick={(e) => sortArtist('age', sortParam.age)}>Age</button>
+    <button onClick={(e) => sortArtist('rate', sortParam.rate)}>Rate</button>
+  </div>
+);
 
 export class App extends Component {
   componentDidMount() {
@@ -22,29 +30,33 @@ export class App extends Component {
     filterArtists();
   }
   render() {
-    const { artistList, artistListFiltered } = this.props;
+    const { artists, sortArtist, sortParam } = this.props;
     return (
       <div className="App">
-        <h1>Pop</h1>
+        <h1>Pop Test</h1>
         <Filters onSubmit={this.filterArtists} />
-        <Table artistList={artistListFiltered && artistListFiltered.length > 0 ? artistListFiltered : artistList} />
+        <OrderBy sortArtist={sortArtist} sortParam={sortParam} />
+        <Table artistList={artists.filtered.length > 0 ? artists.filtered : artists.data} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  artistList: state.artists.data,
-  artistListFiltered: state.artists.dataFiltered,
+  artists: state.artists,
+  sortParam: state.sortParam,
 });
 const mapDispatchToProps = {
   pushArtist: pushArtistList,
   filterArtists: filterArtistsList,
+  sortArtist: sortArtistList,
 };
 
 App.propTypes = {
-  artistList: PropTypes.array.isRequired,
+  artists: PropTypes.object.isRequired,
   pushArtist: PropTypes.func.isRequired,
+  sortArtist: PropTypes.func.isRequired,
+  sortParam: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
