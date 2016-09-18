@@ -3,13 +3,13 @@ exports[`test initial render 1`] = `
   <thead>
     <tr>
       <td>
-        uuid
+        age
       </td>
       <td>
         gender
       </td>
       <td>
-        age
+        latitude
       </td>
       <td>
         longitude
@@ -18,20 +18,20 @@ exports[`test initial render 1`] = `
         rate
       </td>
       <td>
-        latitude
+        uuid
       </td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        f853578c-fc0f-4e65-81b8-566c5dffa35a
+        39
       </td>
       <td>
         F
       </td>
       <td>
-        39
+        51.75436293
       </td>
       <td>
         -0.09998975
@@ -40,18 +40,18 @@ exports[`test initial render 1`] = `
         14.21
       </td>
       <td>
-        51.75436293
+        f853578c-fc0f-4e65-81b8-566c5dffa35a
       </td>
     </tr>
     <tr>
       <td>
-        fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a
+        66
       </td>
       <td>
         M
       </td>
       <td>
-        66
+        51.74640997
       </td>
       <td>
         0.18228006
@@ -60,7 +60,7 @@ exports[`test initial render 1`] = `
         39.5
       </td>
       <td>
-        51.74640997
+        fe2c3195-aeff-487a-a08f-e0bdc0ec6e9a
       </td>
     </tr>
   </tbody>

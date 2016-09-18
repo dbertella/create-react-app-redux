@@ -1,0 +1,15 @@
+exports[`test initial render 1`] = `
+<div>
+  OrderBy:
+  <button
+    onClick={[Function onClick]}>
+    Age 
+    ASC
+  </button>
+  <button
+    onClick={[Function onClick]}>
+    Rate 
+    DESC
+  </button>
+</div>
+`;

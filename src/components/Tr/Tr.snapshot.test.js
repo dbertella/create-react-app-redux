@@ -15,6 +15,6 @@ it('initial render', () => {
   const component = renderer.create(
     <Tr info={Object.keys(artist).map(key => artist[key])} />
   );
-  let tree = component.toJSON();
+  const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });

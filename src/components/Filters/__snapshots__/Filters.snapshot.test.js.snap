@@ -1,0 +1,104 @@
+exports[`test initial render 1`] = `
+<form
+  onSubmit={[Function bound submit]}>
+  Filters:
+  <ul>
+    <li>
+      age range
+      <input
+        name="ageMin"
+        onBlur={[Function bound submit]}
+        onChange={[Function anonymous]}
+        onDragStart={[Function anonymous]}
+        onDrop={[Function anonymous]}
+        onFocus={[Function anonymous]}
+        placeholder="min"
+        type="text"
+        value="" />
+      <input
+        name="ageMax"
+        onBlur={[Function bound submit]}
+        onChange={[Function anonymous]}
+        onDragStart={[Function anonymous]}
+        onDrop={[Function anonymous]}
+        onFocus={[Function anonymous]}
+        placeholder="min"
+        type="text"
+        value="" />
+    </li>
+    <li>
+      rate range
+      <input
+        name="rateMin"
+        onBlur={[Function bound submit]}
+        onChange={[Function anonymous]}
+        onDragStart={[Function anonymous]}
+        onDrop={[Function anonymous]}
+        onFocus={[Function anonymous]}
+        placeholder="min"
+        type="text"
+        value="" />
+      <input
+        name="rateMax"
+        onBlur={[Function bound submit]}
+        onChange={[Function anonymous]}
+        onDragStart={[Function anonymous]}
+        onDrop={[Function anonymous]}
+        onFocus={[Function anonymous]}
+        placeholder="min"
+        type="text"
+        value="" />
+    </li>
+    <li>
+      gender:
+      <label>
+        <input
+          checked={true}
+          name="gender"
+          onBlur={[Function anonymous]}
+          onChange={[Function anonymous]}
+          onClick={[Function onChange]}
+          onDragStart={[Function anonymous]}
+          onDrop={[Function anonymous]}
+          onFocus={[Function anonymous]}
+          type="radio"
+          value="" />
+        none
+      </label>
+      <label>
+        <input
+          checked={false}
+          name="gender"
+          onBlur={[Function anonymous]}
+          onChange={[Function anonymous]}
+          onClick={[Function onChange]}
+          onDragStart={[Function anonymous]}
+          onDrop={[Function anonymous]}
+          onFocus={[Function anonymous]}
+          type="radio"
+          value="M" />
+        M
+      </label>
+      <label>
+        <input
+          checked={false}
+          name="gender"
+          onBlur={[Function anonymous]}
+          onChange={[Function anonymous]}
+          onClick={[Function onChange]}
+          onDragStart={[Function anonymous]}
+          onDrop={[Function anonymous]}
+          onFocus={[Function anonymous]}
+          type="radio"
+          value="F" />
+        F
+      </label>
+    </li>
+  </ul>
+  <button
+    onClick={[Function anonymous]}
+    type="submit">
+    Clear Filters
+  </button>
+</form>
+`;

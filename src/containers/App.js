@@ -2,19 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Table from '../components/Table/';
 import Filters from '../components/Filters/';
+import OrderBy from '../components/OrderBy/';
 
 import { pushArtistList, filterArtistsList, sortArtistList } from '../actions';
 import artists from '../mock/artists.json';
 
 import './App.css';
-
-const OrderBy = ({sortArtist, sortParam}) => (
-  <div>
-    OrderBy:
-    <button onClick={(e) => sortArtist('age', sortParam.age)}>Age</button>
-    <button onClick={(e) => sortArtist('rate', sortParam.rate)}>Rate</button>
-  </div>
-);
 
 export class App extends Component {
   componentDidMount() {
