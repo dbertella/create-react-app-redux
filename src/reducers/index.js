@@ -2,9 +2,12 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
 import {
+  SHOW_ERROR,
+  HIDE_ERROR,
   FILTER_ARTISTS,
   PUSH_ARTISTS,
   SORT_ARTISTS,
+  CHANGE_LAYOUT,
 } from '../actions';
 
 const artists = (state = {
@@ -48,15 +51,45 @@ const sortParam = (state = {
   }
 };
 
+const error = (state = { message: '' }, action) => {
+  switch (action.type) {
+    case SHOW_ERROR:
+      return {
+        ...state,
+        message: action.error,
+      };
+    case HIDE_ERROR:
+      return {
+        ...state,
+        message: '',
+      };
+    default:
+      return state;
+  }
+};
+
+const page = (state = { layout: 'cards' }, action) => {
+  switch (action.type) {
+    case CHANGE_LAYOUT:
+      return {
+        ...state,
+        layout: action.layout,
+      };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   artists,
+  error,
+  page,
   sortParam,
   form: formReducer,
 });
 
 export {
   artists,
-  sortParam,
 };
 
 export default rootReducer;

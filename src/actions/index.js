@@ -1,7 +1,8 @@
-import { reset } from 'redux-form';
-
+export const CHANGE_LAYOUT = 'CHANGE_LAYOUT';
 export const FILTER_ARTISTS = 'FILTER_ARTISTS';
+export const HIDE_ERROR = 'HIDE_ERROR';
 export const PUSH_ARTISTS = 'PUSH_ARTISTS';
+export const SHOW_ERROR = 'SHOW_ERROR';
 export const SORT_ARTISTS = 'SORT_ARTISTS';
 
 export const pushArtistList = json => ({
@@ -11,6 +12,24 @@ export const pushArtistList = json => ({
 const artistFiltered = filtered => ({
   type: FILTER_ARTISTS,
   filtered,
+});
+
+const showError = error => (dispatch) => {
+  dispatch({
+    type: SHOW_ERROR,
+    error,
+  });
+  window.setTimeout(() => {
+    dispatch({
+      type: HIDE_ERROR,
+      error,
+    });
+  }, 3000);
+};
+
+export const changeLayout = layout => ({
+  type: CHANGE_LAYOUT,
+  layout,
 });
 
 export const filterArtistsList = data => (dispatch, getState) => {
@@ -33,8 +52,7 @@ export const filterArtistsList = data => (dispatch, getState) => {
     filteredState = filteredState.filter(artist => artist.gender === data.gender);
   }
   if (filteredState.length === 0) {
-    console.warn(new Error('No match for added filter'));
-    dispatch(reset('filterArtist'));
+    dispatch(showError('No match for this filter, form is reset'));
   }
   return dispatch(artistFiltered(filteredState));
 };

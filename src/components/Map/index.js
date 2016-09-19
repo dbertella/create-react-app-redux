@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Gmaps, Marker, InfoWindow } from 'react-gmaps';
-
+import { Gmaps, Marker } from 'react-gmaps';
 
 const renderList = artistList => artistList.map((artist, i) => (
   <Marker
@@ -9,15 +8,6 @@ const renderList = artistList => artistList.map((artist, i) => (
     lng={artist.longitude}
   />
 ));
-const renderInfo = artistList => artistList.map((artist, i) => (
-  <InfoWindow
-    key={i}
-    lat={artist.latitude}
-    lng={artist.longitude}
-    content={`${artist.age} ${artist.rate} ${artist.gender}`}
-  />
-));
-
 
 const median = (artistList, param) => {
   const values = artistList.map(el => el[param]);
@@ -33,21 +23,19 @@ const median = (artistList, param) => {
 
 const Artists = (props) => {
   const { artistList } = props;
+  const shortenList = artistList.slice(0, 5);
   return (
     <Gmaps
       width={'100%'}
       height={500}
-      lat={median(artistList, 'latitude')}
-      lng={median(artistList, 'longitude')}
-      zoom={12}
+      lat={median(shortenList, 'latitude')}
+      lng={median(shortenList, 'longitude')}
+      zoom={10}
       loadingMessage={'Loading'}
       params={{ v: '3.exp', key: 'AIzaSyBNQdGe3AYv7nAWXTrsIwoiNFjW1coBTAc' }}
     >
     {
-      artistList.length > 0 && renderList(artistList)
-    }
-    {
-      // artistList.length > 0 && renderInfo(artistList)
+      artistList.length > 0 && renderList(shortenList)
     }
     </Gmaps>
   );
