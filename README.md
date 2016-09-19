@@ -12,7 +12,7 @@
 
 ## Project explanation
 I wanted to built something on top of create-react-app because I think is a really good way to start a react app from scratch and still have the control to choose your own path.
-I added redux and a couple of other needed package, I didn't want to depend from a router, I'll maybe add the new version of it if I'll maintain this project in the future.
+I added redux and a couple of other needed package. I didn't want to depend from a router. I'll maybe add the `react-router` v4 to play with when they fix the integration with `redux`.
 
 ## React Gmaps
 It can be laggy in map visualization with that many markers but it's not the components fault of course. I have limited the markers array to 5 records at the moment because probably I reached the gmaps quota limit and I can't see much.
