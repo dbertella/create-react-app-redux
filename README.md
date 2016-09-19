@@ -7,7 +7,7 @@
 - the old and good `redux-thunk`,
 - `redux-form` v6 that is a really nice discover, they made a very good restyle,
 - `react-gmaps` a very smart component to show maps,
-- `enzyme` along with jest that is installed by default for shallow rendering in unit test
+- `enzyme` along with `jest` that is installed by default for shallow rendering in unit test
 - `react-test-renderer` to try out one of the new best thing in the environment, test snapshots
 
 ## Project explanation
@@ -15,9 +15,11 @@ I wanted to built something on top of create-react-app because I think is a real
 I added redux and a couple of other needed package. I didn't want to depend from a router. I'll maybe add the `react-router` v4 to play with when they fix the integration with `redux`.
 
 I've added three different layout:
-- card style, with a button to show a map,
-- map layout where you can see different record on it,
-- table layout that is the complete list with every record.
+- a card style, with a button in every card to show a single marker map,
+- a map layout where you can see different markers on it (now limited for the quota),
+- a table layout with the complete list of record.
+
+All data can be filtered and ordered.
 
 ## Map layout issues
 It can be laggy in map visualization with that many markers but it's not the components fault of course. I have limited the markers array to 5 records at the moment because probably I reached the gmaps quota limit and I can't see much.
