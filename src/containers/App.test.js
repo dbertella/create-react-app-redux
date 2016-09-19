@@ -22,8 +22,10 @@ it('renders without crashing', () => {
     <Provider store={store}>
       <App
         artists={artists}
-        error={''}
+        changePage={stubFunc}
+        error={{}}
         filterArtists={stubFunc}
+        page={{ layout: 'cards' }}
         pushArtist={stubFunc}
         sortArtist={stubFunc}
         sortParam={sortParam}
