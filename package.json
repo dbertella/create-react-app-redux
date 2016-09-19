@@ -10,6 +10,7 @@
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.2.2",
+    "lodash": "^4.16.0",
     "react-scripts": "0.4.1"
   },
   "dependencies": {
