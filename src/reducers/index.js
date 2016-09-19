@@ -35,7 +35,7 @@ const artists = (state = {
 
 const sortParam = (state = {
   age: 'ASC',
-  rate: 'DESC',
+  rate: 'ASC',
 }, action) => {
   switch (action.type) {
     case SORT_ARTISTS:
@@ -53,5 +53,10 @@ const rootReducer = combineReducers({
   sortParam,
   form: formReducer,
 });
+
+export {
+  artists,
+  sortParam,
+};
 
 export default rootReducer;

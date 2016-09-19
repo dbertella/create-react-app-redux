@@ -3,12 +3,12 @@ exports[`test initial render 1`] = `
   OrderBy:
   <button
     onClick={[Function onClick]}>
-    Age 
+    Order per Age 
     ASC
   </button>
   <button
     onClick={[Function onClick]}>
-    Rate 
+    Order per Rate 
     DESC
   </button>
 </div>

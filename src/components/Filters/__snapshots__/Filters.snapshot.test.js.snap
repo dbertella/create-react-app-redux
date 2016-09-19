@@ -51,7 +51,8 @@ exports[`test initial render 1`] = `
     </li>
     <li>
       gender:
-      <label>
+      <label
+        htmlFor="gender">
         <input
           checked={true}
           name="gender"
@@ -65,7 +66,8 @@ exports[`test initial render 1`] = `
           value="" />
         none
       </label>
-      <label>
+      <label
+        htmlFor="gender">
         <input
           checked={false}
           name="gender"
@@ -79,7 +81,8 @@ exports[`test initial render 1`] = `
           value="M" />
         M
       </label>
-      <label>
+      <label
+        htmlFor="gender">
         <input
           checked={false}
           name="gender"

@@ -53,12 +53,12 @@ export const sortArtistList = (param, sortType) => (dispatch, getState) => {
     }
     return 0;
   };
-  const sorted = artistList.sort(sortArtist);
-  const sortedFiltered = artistListFiltered.sort(sortArtist);
+  const sorted = artistList.slice().sort(sortArtist);
+  const sortedFiltered = artistListFiltered.slice().sort(sortArtist);
   return dispatch({
     type: SORT_ARTISTS,
-    sorted: sortType === 'ASC' ? sorted : sorted.reverse(),
-    sortedFiltered: sortType === 'ASC' ? sortedFiltered : sortedFiltered.reverse(),
+    sorted: sortType === 'ASC' ? sorted : sorted.slice().reverse(),
+    sortedFiltered: sortType === 'ASC' ? sortedFiltered : sortedFiltered.slice().reverse(),
     param,
     sortType,
   });

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Artists from '../components/Artists/';
 import Filters from '../components/Filters/';
+// import Map from '../components/Map/';
 import OrderBy from '../components/OrderBy/';
 import Table from '../components/Table/';
 
@@ -40,7 +41,7 @@ export class App extends Component {
     const { showLayout } = this.state;
     return (
       <div className="App">
-        <h1>Pop Test</h1>
+        <h1>Pop</h1>
         <Filters onSubmit={this.filterArtists} />
         <OrderBy sortArtist={sortArtist} sortParam={sortParam} />
         Toggle layout: <button onClick={this.toggleShow}>Show {showLayout} layout</button>
