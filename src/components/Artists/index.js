@@ -8,6 +8,7 @@ const Artists = (props) => {
   const { artistList } = props;
   return (
     <div>
+      <div>Total record: <strong>{artistList.length}</strong></div>
       {
         artistList.length > 0 && renderList(artistList)
       }

@@ -12,18 +12,20 @@ const renderList = artistList => artistList.map((artist, i) =>
 const Table = (props) => {
   const { artistList } = props;
   return (
-    <table>
-      <thead>
-        {
-          artistList.length > 0 && renderHeading(artistList[0])
-        }
-      </thead>
-      <tbody>
-        {
-          artistList.length > 0 && renderList(artistList)
-        }
-      </tbody>
-    </table>
+    <div>Total record: <strong>{artistList.length}</strong>
+      <table>
+        <thead>
+          {
+            artistList.length > 0 && renderHeading(artistList[0])
+          }
+        </thead>
+        <tbody>
+          {
+            artistList.length > 0 && renderList(artistList)
+          }
+        </tbody>
+      </table>
+    </div>
   );
 };
 

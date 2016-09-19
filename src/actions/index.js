@@ -52,7 +52,7 @@ export const filterArtistsList = data => (dispatch, getState) => {
     filteredState = filteredState.filter(artist => artist.gender === data.gender);
   }
   if (filteredState.length === 0) {
-    dispatch(showError('No match for this filter, form is reset'));
+    dispatch(showError('No match for this filter, search is reset'));
   }
   return dispatch(artistFiltered(filteredState));
 };
