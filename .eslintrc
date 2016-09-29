@@ -4,7 +4,13 @@
   "env": {
     "browser": true,
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "jasmine": true
+  },
+  globals: {
+    "jest": false,
+    "expect": true,
+    "sinon": true
   },
   "rules": {
     "max-len": 0,
